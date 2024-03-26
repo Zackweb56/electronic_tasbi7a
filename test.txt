@@ -1,0 +1,19 @@
+<div class="activities_badges">
+  <h2>الأهداف</h2>
+  <span class="badge badge_1"> <p>الهدف الأول </p> <p><span class="count_badge"></span>/50</p></span>
+  <span class="badge badge_2"> <p>الهدف الثاني </p> <p><span class="count_badge"></span>/100</p></span>
+</div>
+
+count_badges.forEach((badge) => {
+    badge.textContent = count;
+    if (count === 5) {
+      localStorage.setItem("badge_1_done", "لقد حققت 50 تسبيحة لهذا اليوم");
+      badge_1.textContent = localStorage.getItem("badge_1_done");
+      localStorage.setItem("badge_active_done", "done_badge");
+      badge_1.classList.add(localStorage.getItem("badge_active_done"));
+    } else if (count === 10) {
+      localStorage.setItem("badge_2_done", "لقد حققت 100 تسبيحة لهذا اليوم");
+      badge_2.textContent = localStorage.getItem("badge_2_done");
+      badge_2.classList.add(localStorage.getItem("badge_active_done"));
+    }
+  });

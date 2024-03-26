@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;1,500&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #222;
+  font-family: "Rubik", sans-serif;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.gear_icon_bar .gear_icon {
+  position: absolute;
+  top: 5%;
+  right: 0;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: 0.5s ease;
+}
+
+.gear_icon_bar .gear_icon.active_icon {
+  right: 18%;
+}
+
+.gear_icon_bar .gear_icon i {
+  font-size: 30px;
+  color: #222;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.gear_icon_bar .settings_bar {
+  position: absolute;
+  right: -250px;
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  transition: 0.5s ease;
+  z-index: 2;
+}
+
+.gear_icon_bar .settings_bar.active {
+  right: 0;
+}
+
+.gear_icon_bar .settings_bar h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+  text-align: center;
+  color: #222;
+}
+
+.gear_icon_bar .settings_bar #tasbi7a_themes,
+.gear_icon_bar .settings_bar .activities_badges {
+  border-radius: 5px;
+  margin: 5px;
+  padding: 15px;
+  background-color: #eee;
+}
+
+.gear_icon_bar .settings_bar #tasbi7a_themes .themes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gear_icon_bar .settings_bar #tasbi7a_themes span {
+  padding: 12px 17px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #fff;
+  font-weight: bold;
+  opacity: .5;
+  font-size: 17px;
+}
+
+.gear_icon_bar .settings_bar #tasbi7a_themes span.active_theme{
+  background-color: #ffaa00;
+  opacity: 1;
+}
+
+.gear_icon_bar .settings_bar .activities_badges {
+  display: flex;
+  flex-direction: column;
+}
+
+.gear_icon_bar .settings_bar .activities_badges .badge {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.gear_icon_bar .settings_bar .activities_badges .badge.done_badge {
+  background-color: #388e3c;
+  color: #fff;
+}
+
+.reset_settings {
+  background-color: #d32f2f;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 0 5px;
+  width: 96%;
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+.reset_settings:hover{
+  background-color: #e7463ae7;
+}
+
+#number_of_tasbi7 {
+  position: absolute;
+  top: 34.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #111;
+  font-size: 85px;
+  z-index: 1;
+  user-select: none;
+}
+
+.tasbi7a_img {
+  position: absolute;
+  top: 15%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasbi7a_img img {
+  width: 25%;
+  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.5));
+}
+
+.buttons button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.buttons .count_btn {
+  position: absolute;
+  top: 52%;
+  left: 44%;
+  padding: 80px;
+  border-radius: 50%;
+}
+
+.buttons .reset_btn {
+  position: absolute;
+  top: 48.5%;
+  left: 54.5%;
+  padding: 25px;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .gear_icon_bar .gear_icon.active_icon {
+    right: 69%;
+  }
+
+  #number_of_tasbi7 {
+    top: 37.5%;
+    left: 50%;
+  }
+
+  .tasbi7a_img {
+    top: 20%;
+  }
+
+  .tasbi7a_img img {
+    width: 100%;
+  }
+
+  .buttons .count_btn {
+    top: 55%;
+    left: 28%;
+  }
+
+  .buttons .reset_btn {
+    top: 51.5%;
+    left: 68%;
+  }
+}

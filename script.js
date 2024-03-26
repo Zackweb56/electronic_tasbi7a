@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     themes.forEach((theme) => {
       theme.addEventListener("click", () => {
         localStorage.setItem("tasbi7a_theme", theme.dataset.theme);
-        tasbi7a_img.src = theme.dataset.theme; // Update the image source when a theme is clicked
+        tasbi7a_img.src = theme.dataset.theme; 
         themes.forEach((btn) => {
           if (btn === theme) {
             btn.classList.add("active_theme");
@@ -64,8 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
       badge.textContent = count;
     });
     // badge function
-    if (count >= 50) {
-      localStorage.setItem("badge_1_done", "لقد حققت 50 تسبيحة لهذا اليوم");
+    if (count >= 33) {
+      localStorage.setItem("badge_1_done", "لقد حققت 33 تسبيحة لهذا اليوم");
       badge_1.textContent = localStorage.getItem("badge_1_done");
       badge_1.style.backgroundColor = "#388e3c";
       badge_1.style.color = "#fff";
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if(localStorage.getItem("badge_2_done")) {
     badge_2.textContent = localStorage.getItem("badge_2_done");
   }
-  if (count >= 50) {
+  if (count >= 33) {
     badge_1.style.backgroundColor = "#388e3c";
     badge_1.style.color = "#fff";
   } else if (count >= 100) {

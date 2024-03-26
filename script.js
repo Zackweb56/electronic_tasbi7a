@@ -27,9 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // reset settings btn
   reset_settings.addEventListener("click", () => {
-    // remove classList
-    badge_2.classList.remove("done_badge");
-    badge_1.classList.remove("done_badge");
     // remove localstorage
     localStorage.removeItem("badge_1_done");
     localStorage.removeItem("badge_2_done");
@@ -67,12 +64,13 @@ document.addEventListener("DOMContentLoaded", function () {
       badge.textContent = count;
     });
     // badge function
-    if (count >= 5) {
+    if (count >= 50) {
       localStorage.setItem("badge_1_done", "لقد حققت 50 تسبيحة لهذا اليوم");
       badge_1.textContent = localStorage.getItem("badge_1_done");
       badge_1.style.backgroundColor = "#388e3c";
       badge_1.style.color = "#fff";
-    } else if (count >= 10) {
+    } 
+    if (count >= 100) {
       localStorage.setItem("badge_2_done", "لقد حققت 100 تسبيحة لهذا اليوم");
       badge_2.textContent = localStorage.getItem("badge_2_done");
       badge_2.style.backgroundColor = "#388e3c";
@@ -110,12 +108,16 @@ document.addEventListener("DOMContentLoaded", function () {
   let count = localStorage.getItem("count") || 0;
   updateCountInLocalStorageAndPage(count);
 
-  badge_1.textContent = localStorage.getItem("badge_1_done") || `الهدف الأول ${count}/50`;
-  badge_2.textContent = localStorage.getItem("badge_2_done");
-  if (count >= 5) {
+  if(localStorage.getItem("badge_1_done")) {
+    badge_1.textContent = localStorage.getItem("badge_1_done");
+  }
+  if(localStorage.getItem("badge_2_done")) {
+    badge_2.textContent = localStorage.getItem("badge_2_done");
+  }
+  if (count >= 50) {
     badge_1.style.backgroundColor = "#388e3c";
     badge_1.style.color = "#fff";
-  } else if (count >= 10) {
+  } else if (count >= 100) {
     badge_2.style.backgroundColor = "#388e3c";
     badge_2.style.color = "#fff";
   }

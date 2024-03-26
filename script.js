@@ -1,4 +1,5 @@
 let number_of_tasbi7 = document.getElementById("number_of_tasbi7");
+let tasabi7_ar = document.getElementById("tasabi7_ar");
 let tasbi7a_img = document.querySelector("#tasbi7a_img");
 let count_btn = document.querySelector(".count_btn");
 let reset_btn = document.querySelector(".reset_btn");
@@ -79,12 +80,25 @@ const updateCountInLocalStorageAndPage = (count) => {
   }
 };
 
+// tasabi7 
+const tasabi7_arr = ['الله أكبر', 'الحمد لله', 'سبحان الله'];
+let currentIndex = 0;
+
 // start counting
 count_btn.addEventListener("click", () => {
   let count = localStorage.getItem("count") || 0;
   count++;
   localStorage.setItem("count", count);
   updateCountInLocalStorageAndPage(count);
+  // show tasabi7
+  tasabi7_ar.textContent = tasabi7_arr[currentIndex];
+  tasabi7_ar.classList.add('active_tasabi7');
+  
+  setTimeout(() => {
+    tasabi7_ar.classList.remove('active_tasabi7');
+    currentIndex = (currentIndex + 1) % tasabi7_arr.length;
+  }, 500); 
+  // tasabi7_ar.classList.add("active_tasabi7");
 });
 
 // reset counting to 0
@@ -98,9 +112,9 @@ updateCountInLocalStorageAndPage(count);
 
 badge_1.textContent =
   localStorage.getItem("badge_1_done") || `الهدف الأول ${count}/50`;
-if (count === 5) {
+if (count === 50) {
   badge_1.style.backgroundColor = localStorage.getItem("badge_color_done");
-} else if (count === 10) {
+} else if (count === 100) {
   badge_2.style.backgroundColor = localStorage.getItem("badge_color_done");
 }
 badge_2.textContent = localStorage.getItem("badge_2_done");
